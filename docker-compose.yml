@@ -26,6 +26,21 @@ services:
     env_file:
       - .env
 
+  gui-app:
+    build:
+      context: gui-app/
+      args:
+        VITE_API_BASE_URL: http://localhost:8000
+    container_name: bug_reports_gui
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+    networks:
+      - mynet
+    env_file:
+      - .env
+
   postgres:
     image: postgres:17-alpine
     container_name: db_postgres_bug_reports
