@@ -9,6 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 # Импортируем модели, чтобы SQAlchemy знал про них
 # В противном случае, таблицы не будут созданы
 from app import models
+from app.router import users, reports
 
 
 @asynccontextmanager
@@ -23,6 +24,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.include_router(users.router)
+app.include_router(reports.router)
 
 
 @app.get("/")
