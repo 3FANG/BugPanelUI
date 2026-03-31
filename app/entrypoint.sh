@@ -15,4 +15,4 @@ alembic upgrade head
 
 # Запускаем приложение
 echo "Starting Uvicorn..."
-exec uvicorn app.main:app --host 0.0.0.0 --port 80
+exec uvicorn src.main:app --host 0.0.0.0 --port 80

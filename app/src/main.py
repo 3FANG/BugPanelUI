@@ -8,8 +8,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 # Импортируем модели, чтобы SQAlchemy знал про них
 # В противном случае, таблицы не будут созданы
-from app import models
-from app.router import users, reports
+from src import models
+from src.router import users, reports
 
 
 @asynccontextmanager

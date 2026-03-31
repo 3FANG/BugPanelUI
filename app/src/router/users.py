@@ -6,8 +6,8 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 
-from app import models, schemas
-from app.database import get_db
+from src import models, schemas
+from src.database import get_db
 
 
 logger = logging.getLogger(__name__)
