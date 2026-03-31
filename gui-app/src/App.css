@@ -1,0 +1,218 @@
+.app {
+  --bg-main: #ffffff;
+  --bg-elevated: #f6f7f9;
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --accent: #1f6feb;
+  --accent-soft: #e8f0fe;
+  --danger-soft: #fde8e8;
+  --danger-text: #b91c1c;
+  --shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
+
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at top right, rgba(31, 111, 235, 0.08), transparent 30%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+.app[data-theme='dark'] {
+  --bg-main: #1e2025;
+  --bg-elevated: #252832;
+  --bg-card: #2b2f3b;
+  --text-main: #f3f4f6;
+  --text-muted: #a3aab8;
+  --border: #3a3f4d;
+  --accent: #8ab4ff;
+  --accent-soft: rgba(138, 180, 255, 0.14);
+  --danger-soft: rgba(220, 38, 38, 0.2);
+  --danger-text: #fecaca;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
+}
+
+.top-bar,
+.content {
+  width: min(940px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28px 0 20px;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.top-bar p {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.theme-toggle,
+.secondary {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 9px 14px;
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.secondary:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 28px;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+.filters input {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  min-width: 0;
+}
+
+.filters input::placeholder {
+  color: var(--text-muted);
+}
+
+.filters input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.summary {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.report-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.report-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.report-card h3 {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.25;
+}
+
+.report-card time {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  white-space: nowrap;
+}
+
+.report-card p {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+.report-card footer {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.state-message {
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+}
+
+.state-message.error {
+  border-style: solid;
+  border-color: rgba(185, 28, 28, 0.35);
+  background: var(--danger-soft);
+  color: var(--danger-text);
+}
+
+@media (max-width: 900px) {
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .report-card header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .report-card time {
+    white-space: normal;
+  }
+}
