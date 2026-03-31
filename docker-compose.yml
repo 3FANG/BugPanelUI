@@ -1,4 +1,4 @@
-name: bugReportsAPI
+name: bug-reports
 
 services:
   adminer:
